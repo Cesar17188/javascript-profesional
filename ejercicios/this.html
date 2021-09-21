@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this</title>
+</head>
+
+<body>
+    <a href="../">Go back</a>
+    <p><em>Abre la consola</em></p>
+    <h1>this se refiere a un objeto. Este objeto es el que actualmente está ejecutando un pedazo de código</h1>
+
+    <script>
+        console.group('this en el scope global');
+        //this en el scope global
+        console.log(`this : ${this}`);
+        console.groupEnd();
+
+
+        console.group('this en el scope de una función');
+        //this en el scope de una función
+        function whoIsThis() {
+            return this;
+        }
+        console.log(`Who is this(): ${whoIsThis()}`);
+        console.groupEnd();
+
+
+        console.group('this en el scope de una función en strict mode');
+        // this en el scope de una función en strict mode
+        function whoIsThisStrict() {
+            "use strict";
+            return this;
+        }
+        console.log(`Who is this(): ${whoIsThisStrict()}`);
+        console.groupEnd();
+
+
+        console.group('this en el contexto de un objeto');
+        // this en el contexto de un objeto
+        const person = {
+            name: 'Cesar',
+            saludar: function () {
+                console.log(`Hola, soy ${this.name}`);
+            }
+        };
+        person.saludar();
+        console.groupEnd();
+
+
+        console.group('this cuando sacamos a una función de un objeto');
+        // this cuando sacamos a una función de un objeto
+        const accion = person.saludar;
+        accion();
+        console.groupEnd();
+
+
+        console.group('this en el contexto de una clase');
+        // this en el contexto de una "clase"
+        function Person(name) {
+            // this = {}
+            this.name = name;
+        }
+
+        Person.prototype.saludar = function () {
+            console.log(`Hola, me llamo ${this.name}`);
+        }
+
+        const angela = new Person("Angela");
+        angela.saludar();
+        console.groupEnd();
+
+
+    </script>
+
+</body>
+
+</html>
