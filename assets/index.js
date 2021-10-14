@@ -14,3 +14,9 @@ Playbutton.onclick = () => player.tooglePlay();
 
 const Mutebutton = document.getElementById("muteButton");
 Mutebutton.onclick = () => player.mute_unmute();
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/sw.js").catch((error) => {
+    console.error(error);
+  });
+}

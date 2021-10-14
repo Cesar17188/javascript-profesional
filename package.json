@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "live-server"
+    "start": "parcel website/index.html ejercicios/index.html ejercicios/**/*.html",
+    "build": "parcel build index.html"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/platzi/javascript-profesional/issues"
   },
-  "homepage": "https://github.com/platzi/javascript-profesional#readme"
+  "homepage": "https://github.com/platzi/javascript-profesional#readme",
+  "browserslist": [
+    "> 0.5%, last 2 versions, not dead"
+  ],
+  "devDependencies": {
+    "parcel": "^2.0.0"
+  }
 }
